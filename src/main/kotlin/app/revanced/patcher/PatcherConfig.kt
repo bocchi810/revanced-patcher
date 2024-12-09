@@ -27,7 +27,7 @@ class PatcherConfig(
      * @see ResourcePatchContext.ResourceMode
      */
     internal var resourceMode = ResourcePatchContext.ResourceMode.NONE
-
+    private val shortenResourcePaths: Boolean = false,
     /**
      * The configuration for decoding and compiling resources.
      */
@@ -36,6 +36,7 @@ class PatcherConfig(
             useAapt2 = true
             aaptPath = aaptBinaryPath ?: ""
             frameworkDirectory = frameworkFileDirectory
+            this.shortenResourcePaths = this@PatcherConfig.shortenResourcePaths
         }
 
     /**
