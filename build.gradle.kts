@@ -7,7 +7,7 @@ plugins {
     signing
 }
 
-group = "app.revanced"
+group = "top.haoming9245.app.revanced"
 
 tasks {
     processResources {
@@ -27,7 +27,7 @@ repositories {
     google()
     maven {
         // A repository must be specified for some reason. "registry" is a dummy.
-        url = uri("https://maven.pkg.github.com/revanced/registry")
+        url = uri("https://maven.pkg.github.com/bocchi810/registry")
         credentials {
             username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
             password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
@@ -71,10 +71,10 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
+            url = uri("https://maven.pkg.github.com/bocchi810/revanced-patcher")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
@@ -104,9 +104,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = "scm:git:git://github.com/revanced/revanced-patcher.git"
-                    developerConnection = "scm:git:git@github.com:revanced/revanced-patcher.git"
-                    url = "https://github.com/revanced/revanced-patcher"
+                    connection = "scm:git:git://github.com/bocchi810/revanced-patcher.git"
+                    developerConnection = "scm:git:git@github.com:bocchi810/revanced-patcher.git"
+                    url = "https://github.com/bocchi810/revanced-patcher"
                 }
             }
         }
